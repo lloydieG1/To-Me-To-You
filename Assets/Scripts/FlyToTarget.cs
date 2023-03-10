@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WalkToPlayer : MonoBehaviour
+public class FlyToTarget : MonoBehaviour
 {
-    [SerializeField] float walkSpeed = 5f;
+    [SerializeField] float flySpeed = 5f;
     Rigidbody2D rb;
     [SerializeField] Transform target;
     Vector2 scaleChange, moveDirection;
@@ -25,6 +25,8 @@ public class WalkToPlayer : MonoBehaviour
         if(target)
         {
             Vector3 direction = (target.position - transform.position).normalized;
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            rb.rotation = angle;
             moveDirection = direction;
         }
     }
@@ -32,8 +34,7 @@ public class WalkToPlayer : MonoBehaviour
     private void FixedUpdate() {
         if(target)
         {
-            transform.position = Vector2.MoveTowards (transform.position, new Vector2(target.position.x, transform.position.y), walkSpeed * Time.deltaTime);
-        }
+            rb.velocity = new Vector2(moveDirection.x, moveDirection.y) * flySpeed;        }
         if(target.position.x > transform.position.x)
         {
             transform.localScale = new Vector3(0.5436932f, 0.5034307f, 1);
