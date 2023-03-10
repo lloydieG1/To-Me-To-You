@@ -7,7 +7,7 @@ public class WalkToPlayer : MonoBehaviour
     [SerializeField] float walkSpeed = 5f;
     Rigidbody2D rb;
     [SerializeField] Transform target;
-    Vector2 moveDirection;
+    Vector2 scaleChange, moveDirection;
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +33,14 @@ public class WalkToPlayer : MonoBehaviour
         if(target)
         {
             transform.position = Vector2.MoveTowards (transform.position, new Vector2(target.position.x, transform.position.y), walkSpeed * Time.deltaTime);
+        }
+        if(target.position.x > transform.position.x)
+        {
+            transform.localScale = new Vector3(0.5436932f, 0.5034307f, 1);
+        }
+        if(target.position.x < transform.position.x)
+        {
+            transform.localScale = new Vector3(-0.5436932f, 0.5034307f, 1);
         }
     }
 }
