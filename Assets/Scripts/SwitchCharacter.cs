@@ -24,6 +24,8 @@ public class SwitchCharacter : MonoBehaviour {
     // public method to switch players by pressing UI button
     public void SwitchPlayer(GameObject player)
     {
+        Debug.Log("attempt");
+        Debug.Log(player);
         // switch to player 2
         if (player == player1) {
             Debug.Log("switching to player 2");
