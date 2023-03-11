@@ -39,6 +39,7 @@ public class DamageableCharacter : MonoBehaviour, Damageable {
     public void OnHit(float damage, Vector2 knockback){
         Health -= damage;
         rb.AddForce(knockback, ForceMode2D.Impulse);
+        PlayerMovement.LockMovement();
     }
 
     public void Defeated(){
