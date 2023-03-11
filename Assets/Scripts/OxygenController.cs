@@ -17,6 +17,7 @@ public class OxygenController : MonoBehaviour
     Color currentColor;
     Color targetColor;
     Color newColor;
+    float percentageDepleted;
 
     private void Start() {
         initialOxygenLevel = oxygenLevel;
@@ -30,8 +31,9 @@ public class OxygenController : MonoBehaviour
         // newColor = Color.Lerp(currentColor, targetColor, Time.deltaTime * colorChangeSpeed);
 
         // oxygenBar.color = newColor;
+        percentageDepleted = oxygenLevel/initialOxygenLevel; 
         
-        if(oxygenLevel/initialOxygenLevel < 0.5) {
+        if(percentageDepleted < 0.5 && percentageDepleted > 0.25) {
             oxygenBar.color = new Color(255,255,0);
         } else if(oxygenLevel/initialOxygenLevel < 0.25) {
             oxygenBar.color = new Color(255,0,0);
