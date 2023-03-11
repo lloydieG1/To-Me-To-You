@@ -21,7 +21,12 @@ public class DamageableCharacter : MonoBehaviour, Damageable {
             _health = value;
             Debug.Log(_health);
             if(_health <= 0 && gameObject.tag != "Player"){
+                // when something that isnt a player dies
                 Destroy(gameObject);
+            }
+            if(_health <= 0 && gameObject.tag == "Player"){
+                // when the player dies
+                Defeated();
             }
         }
 
@@ -33,7 +38,11 @@ public class DamageableCharacter : MonoBehaviour, Damageable {
 
     public void OnHit(float damage, Vector2 knockback){
         Health -= damage;
-
         rb.AddForce(knockback, ForceMode2D.Impulse);
+    }
+
+    public void Defeated(){
+        // What happens when the player is defeated
+        Debug.Log("player dead");
     }
 }
