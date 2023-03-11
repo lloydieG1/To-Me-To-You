@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    Rigidbody2D rb;
+    Collider2D physicsCollider;
     public SwitchCharacter switchCharacter;
     GameObject myGameObject;
+
+    public float damage = 1;
+    public float knockbackForce = 100f;
 
     private void Start()
     {
