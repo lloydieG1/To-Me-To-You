@@ -105,7 +105,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 6022c172c54214940bbecd47b30a2368, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -168,4 +168,5 @@ MonoBehaviour:
   oxygenLevel: 100
   oxygenDepletionRate: 1
   oxygenGainRate: 2
-  oxygenImage: {fileID: 0}
+  colorChangeSpeed: 0
+  oxygenBar: {fileID: 0}
