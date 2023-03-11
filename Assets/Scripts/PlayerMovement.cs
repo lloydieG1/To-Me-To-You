@@ -2,24 +2,56 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : MonoBehaviour 
 {
-    public float speed = 5f; // The speed of the player movement
-    private float horizontalInput; // The horizontal input from the player
-    private float verticalInput; // The vertical input from the player
 
+    //Movement
+    public float speed;
+    public float jump;
+    private float moveVelocity;
+    private bool isGrounded = true; 
 
+    private Rigidbody2D rb;   
 
+    private void Start() {
+        // Get the player's rigidbody component
+        rb = GetComponent<Rigidbody2D>();
+        rb.freezeRotation = true;
+    }
 
-    // Update is called once per frame
-    void Update()
+    void Update () 
     {
-        // Get the player's input from the keyboard or joystick
-        horizontalInput = Input.GetAxis("Horizontal");
-        verticalInput = Input.GetAxis("Vertical");
+        //Jumping
+        if (Input.GetButtonDown("Jump") && isGrounded)
+        {
+            rb.velocity = new Vector2 (rb.velocity.x, jump);
+            isGrounded = false;
+        }
+        
 
-        // Move the player's position based on their input and the speed
-        Vector2 movement = new Vector2(horizontalInput, verticalInput) * speed * Time.deltaTime;
-        transform.position = new Vector2(transform.position.x + movement.x, transform.position.y + movement.y);
+        moveVelocity = 0;
+
+        //Left Right Movement
+        if (Input.GetKey (KeyCode.LeftArrow) || Input.GetKey (KeyCode.A)) 
+        {
+            moveVelocity = -speed;
+        }
+        if (Input.GetKey (KeyCode.RightArrow) || Input.GetKey (KeyCode.D)) 
+        {
+            moveVelocity = speed;
+        }
+
+        rb.velocity = new Vector2 (moveVelocity, rb.velocity.y);
+
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        // Check if the player has collided with the ground
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            isGrounded = true;
+        }
     }
 }
+
