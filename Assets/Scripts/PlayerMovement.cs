@@ -88,7 +88,7 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(LockTimeLength);
 
         // Set isUnmovable back to false
-        isUnmovable = false;
+        lockMovement = false;
     }
 }
 
