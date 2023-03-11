@@ -7,6 +7,8 @@ public class PlayerMovement : MonoBehaviour
     //Movement
     public float speed;
     public float jump;
+    private bool lockMovement;
+    public float LockTimeLength = 0.3f;
     private float moveVelocity;
     private bool isGrounded = true; 
     public SwordAttack swordAttack;
@@ -32,16 +34,18 @@ public class PlayerMovement : MonoBehaviour
         
         moveVelocity = 0;
 
+
         //Left Right Movement
-        if (Input.GetKey (KeyCode.LeftArrow) || Input.GetKey (KeyCode.A)) 
-        {
-            moveVelocity = -speed;
-            
-        }
-        if (Input.GetKey (KeyCode.RightArrow) || Input.GetKey (KeyCode.D)) 
-        {
-            moveVelocity = speed;
-            
+        if(lockMovement == true){
+            if (Input.GetKey (KeyCode.LeftArrow) || Input.GetKey (KeyCode.A)) 
+            {
+                moveVelocity = -speed;
+                
+            }
+            if (Input.GetKey (KeyCode.RightArrow) || Input.GetKey (KeyCode.D)) 
+            {
+                moveVelocity = speed;
+            }
         }
 
         rb.velocity = new Vector2 (moveVelocity, rb.velocity.y);
@@ -71,6 +75,20 @@ public class PlayerMovement : MonoBehaviour
             // face left
             rb.transform.localScale = new Vector2(-0.5f, 0.5f); // face left
         }
+    }
+
+    public void LockMovement(){
+        lockMovement = true;
+        StartCoroutine(MakeUnmovable());
+    }
+
+    private IEnumerator MakeUnmovable()
+    {
+        // Wait for 0.3 seconds
+        yield return new WaitForSeconds(LockTimeLength);
+
+        // Set isUnmovable back to false
+        lockMovement = false;
     }
 }
 

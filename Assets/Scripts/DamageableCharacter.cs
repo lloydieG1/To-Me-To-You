@@ -7,6 +7,7 @@ public class DamageableCharacter : MonoBehaviour, Damageable {
     Rigidbody2D rb;
     Collider2D physicsCollider;
     [SerializeField] float _health = 3f;
+    public SwitchCharacter playerMovement;
 
     private void Start() {
         rb = GetComponent<Rigidbody2D>();
@@ -39,6 +40,7 @@ public class DamageableCharacter : MonoBehaviour, Damageable {
     public void OnHit(float damage, Vector2 knockback){
         Health -= damage;
         rb.AddForce(knockback, ForceMode2D.Impulse);
+        playerMovement.LockMovement();
     }
 
     public void Defeated(){
