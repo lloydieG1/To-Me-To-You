@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D rb;
     Collider2D physicsCollider;
     public SwitchCharacter switchCharacter;
+    public ResourceController resourceController; // Reference to the ResourceController object
     GameObject myGameObject;
 
     // public float damage = 1;
@@ -17,7 +18,9 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         myGameObject = gameObject;
+        resourceController = GameObject.Find("ResourceController").GetComponent<ResourceController>();
     }
+
 
     // Update is called once per frame
     void Update()
@@ -48,5 +51,37 @@ public class PlayerController : MonoBehaviour
     //     }
     // }
 
-    
+    void OnTriggerEnter2D(Collider2D other) {
+        Debug.Log("ree");
+        if (other.CompareTag("Metal")) {
+            // Player entered the collider, start gathering metal
+            InvokeRepeating("AddMetal", 0.0f, 1.0f);
+        }
+
+        if (other.CompareTag("HealJuice")) {
+            // Player entered the collider, start gathering metal
+            InvokeRepeating("AddHealJuice", 0.0f, 1.0f);
+        }
+    }
+
+    void AddMetal() {
+        resourceController.MiningMetal();
+    }
+
+    void OnTriggerExit2D(Collider2D other) {
+        if (other.CompareTag("Metal")) {
+            // Player exited the collider, stop gathering metal
+            CancelInvoke("AddMetal");
+        }
+
+        if (other.CompareTag("HealJuice")) {
+            // Player exited the collider, stop gathering metal
+            CancelInvoke("AddHealJuice");
+        }
+
+    }
+
+    void AddHealJuice() {
+        resourceController.MiningHealJuice();
+    }
 }
