@@ -11,7 +11,6 @@ public class PlayerMovement : MonoBehaviour
     public float LockTimeLength = 0.3f;
     private float moveVelocity;
     private bool isGrounded = true; 
-    public SwordAttack swordAttack;
     SpriteRenderer spriteRenderer;
     private Rigidbody2D rb;   
 
@@ -36,7 +35,7 @@ public class PlayerMovement : MonoBehaviour
 
 
         //Left Right Movement
-        if(lockMovement == true){
+        // if(lockMovement == true){
             if (Input.GetKey (KeyCode.LeftArrow) || Input.GetKey (KeyCode.A)) 
             {
                 moveVelocity = -speed;
@@ -46,7 +45,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 moveVelocity = speed;
             }
-        }
+        // }
 
         rb.velocity = new Vector2 (moveVelocity, rb.velocity.y);
 
@@ -77,18 +76,18 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    public void LockMovement(){
-        lockMovement = true;
-        StartCoroutine(MakeUnmovable());
-    }
+    // public void LockMovement(){
+    //     lockMovement = true;
+    //     StartCoroutine(MakeUnmovable());
+    // }
 
-    private IEnumerator MakeUnmovable()
-    {
-        // Wait for 0.3 seconds
-        yield return new WaitForSeconds(LockTimeLength);
+    // private IEnumerator MakeUnmovable()
+    // {
+    //     // Wait for 0.3 seconds
+    //     yield return new WaitForSeconds(LockTimeLength);
 
-        // Set isUnmovable back to false
-        lockMovement = false;
-    }
+    //     // Set isUnmovable back to false
+    //     LockMovement = false;
+    // }
 }
 

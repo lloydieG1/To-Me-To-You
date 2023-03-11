@@ -36,6 +36,6 @@ public class SwordAttack : MonoBehaviour
 
     void OnDrawGizmosSelected() {
         Gizmos.color = Color.red;
-        // Gizmos.DrawWireSphere(attackPos.position, attackRange);
+        Gizmos.DrawWireSphere(attackPos.position, attackRange);
     }
 }
