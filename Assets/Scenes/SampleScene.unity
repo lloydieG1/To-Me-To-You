@@ -445,7 +445,7 @@ GameObject:
   - component: {fileID: 451306030}
   m_Layer: 0
   m_Name: Walker
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -901,6 +901,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1467093637803346930, guid: bce7ba2d7e96f08478ab3e9a3b190b6a, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2361034804780751556, guid: bce7ba2d7e96f08478ab3e9a3b190b6a, type: 3}
+      propertyPath: swordAttack
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2741074254256658215, guid: bce7ba2d7e96f08478ab3e9a3b190b6a, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3302622932159807288, guid: bce7ba2d7e96f08478ab3e9a3b190b6a, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -949,9 +961,21 @@ PrefabInstance:
       propertyPath: m_Constraints
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4572954265233893270, guid: bce7ba2d7e96f08478ab3e9a3b190b6a, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5340179936344099444, guid: bce7ba2d7e96f08478ab3e9a3b190b6a, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6106792772717452856, guid: bce7ba2d7e96f08478ab3e9a3b190b6a, type: 3}
       propertyPath: damage
-      value: 2
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6106792772717452856, guid: bce7ba2d7e96f08478ab3e9a3b190b6a, type: 3}
+      propertyPath: swordAttack
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6106792772717452856, guid: bce7ba2d7e96f08478ab3e9a3b190b6a, type: 3}
       propertyPath: knockbackForce
@@ -961,6 +985,10 @@ PrefabInstance:
       propertyPath: switchCharacter
       value: 
       objectReference: {fileID: 523553622}
+    - target: {fileID: 7087466612845271593, guid: bce7ba2d7e96f08478ab3e9a3b190b6a, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8208995604864967684, guid: bce7ba2d7e96f08478ab3e9a3b190b6a, type: 3}
       propertyPath: m_Name
       value: IcePlayer
