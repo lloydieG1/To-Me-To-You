@@ -21,6 +21,7 @@ public class OxygenController : MonoBehaviour
 
     private void Start() {
         initialOxygenLevel = oxygenLevel;
+
     }
 
     // Update is called once per frame
@@ -56,6 +57,8 @@ public class OxygenController : MonoBehaviour
 
     public void AddOxygen(float amount)
     {
+        Debug.Log("adding oxygen: " + oxygenLevel);
+
         // Add oxygen to player's oxygen level
         oxygenLevel += amount;
 
