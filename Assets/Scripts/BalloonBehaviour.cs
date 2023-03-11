@@ -5,6 +5,7 @@ using UnityEngine;
 public class BalloonBehaviour : MonoBehaviour
 {
     public float riseSpeed; // the speed at which the balloon rises
+    public int oxygenGive;
     private Rigidbody2D rb;
 
     private void Start() {

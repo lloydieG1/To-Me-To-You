@@ -8,7 +8,9 @@ public class PlayerController : MonoBehaviour
     Collider2D physicsCollider;
     public SwitchCharacter switchCharacter;
     public ResourceController resourceController; // Reference to the ResourceController object
+    public OxygenController oxygenController;
     GameObject myGameObject;
+    
 
     public float damage = 1;
     public float knockbackForce = 100f;
@@ -47,17 +49,24 @@ public class PlayerController : MonoBehaviour
             // run the OnHit implementation and pass our Vector2 force
             damageable.OnHit(damage, knockback);
         }
+
+        if (collider.CompareTag("Balloon")) {
+            // Player entered the collider, start gathering metal
+            oxygenController.AddOxygen(collider.gameObject.GetComponent<BalloonBehaviour>().oxygenGive);
+            Destroy(collider.gameObject);
+        }
     }
 
+
+    // trigger handling
     void OnTriggerEnter2D(Collider2D other) {
-        Debug.Log("ree");
         if (other.CompareTag("Metal")) {
             // Player entered the collider, start gathering metal
             InvokeRepeating("AddMetal", 0.0f, 1.0f);
         }
 
         if (other.CompareTag("HealJuice")) {
-            // Player entered the collider, start gathering metal
+            // Player entered the collider, start gathering health juice
             InvokeRepeating("AddHealJuice", 0.0f, 1.0f);
         }
     }

@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 4723214042590155762}
   - component: {fileID: 6106792772717452856}
   - component: {fileID: 2361034804780751556}
-  - component: {fileID: -1518984016396991333}
   m_Layer: 0
   m_Name: IndividualPlayer
   m_TagString: Untagged
@@ -139,6 +138,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   switchCharacter: {fileID: 0}
+  resourceController: {fileID: 0}
+  oxygenController: {fileID: 0}
+  damage: 1
+  knockbackForce: 100
 --- !u!114 &2361034804780751556
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,20 +156,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   jump: 7
---- !u!114 &-1518984016396991333
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8208995604864967684}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e06d37dde2c6a8d44947a3b6f6333ccb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  oxygenLevel: 100
-  oxygenDepletionRate: 1
-  oxygenGainRate: 2
-  colorChangeSpeed: 0
-  oxygenBar: {fileID: 0}
