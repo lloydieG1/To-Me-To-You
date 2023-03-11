@@ -6,7 +6,6 @@ public class SwitchCharacter : MonoBehaviour {
 
     // references to controlled game objects
     public GameObject player1, player2;
-
     // variable contains which player is on and active
     public GameObject currentPlayer;
 
