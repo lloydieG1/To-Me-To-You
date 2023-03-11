@@ -5,12 +5,14 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
-  - Enemy
+  - Metal
+  - HealJuice
+  - Balloon
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - enemy
+  - 
   - Water
   - UI
   - 
