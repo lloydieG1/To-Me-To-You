@@ -1124,6 +1124,55 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c71c67cb17c67d64896d70e4fa7bcf46, type: 3}
+--- !u!1 &1040800983
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1040800985}
+  - component: {fileID: 1040800984}
+  m_Layer: 0
+  m_Name: OxygenController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1040800984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1040800983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e06d37dde2c6a8d44947a3b6f6333ccb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  oxygenLevel: 100
+  oxygenDepletionRate: 1
+  oxygenGainRate: 2
+  colorChangeSpeed: 0
+  oxygenBar: {fileID: 1826327036}
+--- !u!4 &1040800985
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1040800983}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.8159306, y: -0.9635657, z: -9.968011}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 19
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1358096993
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1199,8 +1248,7 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: -1518984016396991333, guid: bce7ba2d7e96f08478ab3e9a3b190b6a, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bce7ba2d7e96f08478ab3e9a3b190b6a, type: 3}
 --- !u!1001 &1430167316
 PrefabInstance:
@@ -1209,22 +1257,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -1518984016396991333, guid: bce7ba2d7e96f08478ab3e9a3b190b6a, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -1518984016396991333, guid: bce7ba2d7e96f08478ab3e9a3b190b6a, type: 3}
-      propertyPath: oxygenBar
-      value: 
-      objectReference: {fileID: 1826327036}
-    - target: {fileID: -1518984016396991333, guid: bce7ba2d7e96f08478ab3e9a3b190b6a, type: 3}
-      propertyPath: oxygenImage
-      value: 
-      objectReference: {fileID: 1826327036}
-    - target: {fileID: -1518984016396991333, guid: bce7ba2d7e96f08478ab3e9a3b190b6a, type: 3}
-      propertyPath: oxygenDepletionRate
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 1890883278069193493, guid: bce7ba2d7e96f08478ab3e9a3b190b6a, type: 3}
       propertyPath: m_Color.b
       value: 0.8301887
@@ -1293,6 +1325,14 @@ PrefabInstance:
       propertyPath: switchCharacter
       value: 
       objectReference: {fileID: 523553622}
+    - target: {fileID: 6106792772717452856, guid: bce7ba2d7e96f08478ab3e9a3b190b6a, type: 3}
+      propertyPath: oxygenController
+      value: 
+      objectReference: {fileID: 1040800984}
+    - target: {fileID: 6106792772717452856, guid: bce7ba2d7e96f08478ab3e9a3b190b6a, type: 3}
+      propertyPath: resourceController
+      value: 
+      objectReference: {fileID: 1455326685}
     - target: {fileID: 8208995604864967684, guid: bce7ba2d7e96f08478ab3e9a3b190b6a, type: 3}
       propertyPath: m_Name
       value: MoonPlayer
@@ -1301,13 +1341,25 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: bce7ba2d7e96f08478ab3e9a3b190b6a, type: 3}
 --- !u!1 &1440940930 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8208995604864967684, guid: bce7ba2d7e96f08478ab3e9a3b190b6a, type: 3}
   m_PrefabInstance: {fileID: 1430167316}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1455326685 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1594737903552967952, guid: 8c1038af3965b864cb8e75fdffa8a3e1, type: 3}
+  m_PrefabInstance: {fileID: 480630851}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30690e94357d21c46adcc1cd1f12c726, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1479864366
 GameObject:
   m_ObjectHideFlags: 0
@@ -1987,6 +2039,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   riseSpeed: 1
+  oxygenGive: 0
 --- !u!114 &1594475709
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2047,6 +2100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   riseSpeed: 1
+  oxygenGive: 0
 --- !u!50 &1649673041
 Rigidbody2D:
   serializedVersion: 4
@@ -2432,6 +2486,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7349927654313988137, guid: 2f0293c242d065648b76c543c6817274, type: 3}
+      propertyPath: oxygenGive
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7349927654313988139, guid: 2f0293c242d065648b76c543c6817274, type: 3}
       propertyPath: m_Name
       value: Balloon (1)
