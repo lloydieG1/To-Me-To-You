@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         // switch character command
-        if (Input.GetKeyDown("space"))
+        if (Input.GetKeyDown(KeyCode.Tab))
         {
             switchCharacter.SwitchPlayer(myGameObject);
             switchCharacter.currentPlayer.GetComponent<PlayerController>().enabled = true;
