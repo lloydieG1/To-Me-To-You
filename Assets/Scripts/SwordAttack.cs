@@ -10,7 +10,7 @@ public class SwordAttack : MonoBehaviour
     public Transform attackPos;
     public float attackRange;
     public LayerMask whatIsEnemies;
-
+    
 
     public float damage = 1f;
     public float knockbackForce = 100f;
@@ -36,6 +36,6 @@ public class SwordAttack : MonoBehaviour
 
     void OnDrawGizmosSelected() {
         Gizmos.color = Color.red;
-        // Gizmos.DrawWireSphere(attackPos.position, attackRange);
+        Gizmos.DrawWireSphere(attackPos.position, attackRange);
     }
 }
