@@ -8,9 +8,7 @@ public class PlayerController : MonoBehaviour
     Collider2D physicsCollider;
     public SwitchCharacter switchCharacter;
     public ResourceController resourceController; // Reference to the ResourceController object
-    public OxygenController oxygenController;
     GameObject myGameObject;
-    
 
     // public float damage = 1;
     public float knockbackForce = 100f;
@@ -35,27 +33,33 @@ public class PlayerController : MonoBehaviour
             switchCharacter.currentPlayer.GetComponent<PlayerMovement>().enabled = true;
         }
     }
-            // run the OnHit implementation and pass our Vector2 force
-            damageable.OnHit(damage, knockback);
-        }
 
-        if (collider.CompareTag("Balloon")) {
-            // Player entered the collider, start gathering metal
-            oxygenController.AddOxygen(collider.gameObject.GetComponent<BalloonBehaviour>().oxygenGive);
-            Destroy(collider.gameObject);
-        }
-    }
+    // // deal damage to damageable enemies
+    // void OnCollisionEnter2D(Collision2D collision) {
+    //     Collider2D collider = collision.collider;
+    //     Damageable damageable = collider.GetComponent<Damageable>();
+    //     if(damageable != null) {
+    //         Debug.Log("Touch");
+    //         // Offset for collision detection changes the direction where the force is coming from
+    //         Vector2 direction = (collider.transform.position - transform.position).normalized;
 
+    //         // Knockback is in direction of swordCollider towards collider
+    //         Vector2 knockback = direction * knockbackForce;
 
-    // trigger handling
+    //         // run the OnHit implementation and pass our Vector2 force
+    //         damageable.OnHit(damage, knockback);
+    //     }
+    // }
+
     void OnTriggerEnter2D(Collider2D other) {
+        Debug.Log("ree");
         if (other.CompareTag("Metal")) {
             // Player entered the collider, start gathering metal
             InvokeRepeating("AddMetal", 0.0f, 1.0f);
         }
 
         if (other.CompareTag("HealJuice")) {
-            // Player entered the collider, start gathering health juice
+            // Player entered the collider, start gathering metal
             InvokeRepeating("AddHealJuice", 0.0f, 1.0f);
         }
     }
