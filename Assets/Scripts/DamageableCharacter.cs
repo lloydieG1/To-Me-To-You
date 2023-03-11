@@ -19,6 +19,10 @@ public class DamageableCharacter : MonoBehaviour, Damageable {
             }
 
             _health = value;
+            Debug.Log(_health);
+            if(_health <= 0 && gameObject.tag != "Player"){
+                Destroy(gameObject);
+            }
         }
 
         get{
