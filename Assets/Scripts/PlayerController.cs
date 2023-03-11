@@ -28,4 +28,6 @@ public class PlayerController : MonoBehaviour
             switchCharacter.currentPlayer.GetComponent<PlayerMovement>().enabled = true;
         }
     }
+
+    
 }

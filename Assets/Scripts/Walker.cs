@@ -13,7 +13,6 @@ public class Walker : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision) {
         Collider2D collider = collision.collider;
         Damageable damageable = collider.GetComponent<Damageable>();
-        Debug.Log("yex");
         if(damageable != null) {
             Debug.Log("Touch");
             // Offset for collision detection changes the direction where the force is coming from
@@ -26,4 +25,5 @@ public class Walker : MonoBehaviour
             damageable.OnHit(damage, knockback);
         }
     }
+
 }

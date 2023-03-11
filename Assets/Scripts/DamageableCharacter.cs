@@ -8,6 +8,10 @@ public class DamageableCharacter : MonoBehaviour, Damageable {
     Collider2D physicsCollider;
     [SerializeField] float _health = 3f;
 
+    private void Start() {
+        rb = GetComponent<Rigidbody2D>();
+    }
+
     public float Health {
         set{
             if(value < _health){
