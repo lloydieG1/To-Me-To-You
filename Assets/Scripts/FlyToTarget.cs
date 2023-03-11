@@ -34,14 +34,15 @@ public class FlyToTarget : MonoBehaviour
     private void FixedUpdate() {
         if(target)
         {
-            rb.velocity = new Vector2(moveDirection.x, moveDirection.y) * flySpeed;        }
+            rb.velocity = new Vector2(moveDirection.x, moveDirection.y) * flySpeed;      
+        }
         if(target.position.x > transform.position.x)
         {
-            transform.localScale = new Vector3(0.5436932f, 0.5034307f, 1);
+            transform.localScale = new Vector3(0.5f, 0.5f, 1);
         }
         if(target.position.x < transform.position.x)
         {
-            transform.localScale = new Vector3(-0.5436932f, 0.5034307f, 1);
+            transform.localScale = new Vector3(-0.5f, 0.5f, 1);
         }
     }
 }
