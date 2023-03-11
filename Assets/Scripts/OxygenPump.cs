@@ -7,7 +7,7 @@ public class OxygenPump : MonoBehaviour
     public float deflateRate; // how fast the balloon deflates (in units per second)
     public float inflateRate;
     public float releaseOxygen; // how much oxygen is released when the balloon is filled (in arbitrary units)
-    public KeyCode inflateKey = KeyCode.LeftShift; // the key used to inflate the balloon
+    private KeyCode inflateKey = KeyCode.Space; // the key used to inflate the balloon
     public Collider2D triggerCollider; // the collider that triggers the oxygen pump
     public GameObject balloonPrefab;
 

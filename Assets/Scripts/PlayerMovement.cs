@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
     void Update () 
     {
         //Jumping
-        if (Input.GetButtonDown("Jump") && isGrounded)
+        if (Input.GetKeyDown(KeyCode.W) && isGrounded)
         {
             rb.velocity = new Vector2 (rb.velocity.x, jump);
             isGrounded = false;
