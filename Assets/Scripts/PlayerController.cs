@@ -35,13 +35,14 @@ public class PlayerController : MonoBehaviour
             switchCharacter.currentPlayer.GetComponent<PlayerMovement>().enabled = true;
         }
             // run the OnHit implementation and pass our Vector2 force
-        damageable.OnHit(damage, knockback);
+        // damageable.OnHit(damage, knockback);
 
+    }
 
-        if (collider.CompareTag("Balloon")) {
-            // Player entered the collider, start gathering metal
-            oxygenController.AddOxygen(collider.gameObject.GetComponent<BalloonBehaviour>().oxygenGive);
-            Destroy(collider.gameObject);
+    private void OnCollisionEnter2D(Collision2D collision) {
+        if (collision.gameObject.CompareTag("Balloon")) {
+            oxygenController.AddOxygen(collision.gameObject.GetComponent<BalloonBehaviour>().oxygenGive);
+            Destroy(collision.gameObject);
         }
     }
 
