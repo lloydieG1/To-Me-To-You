@@ -10,7 +10,11 @@ public class DamageableCharacter : MonoBehaviour, Damageable {
     [SerializeField] float _health = 3f;
     SpriteRenderer spriteRenderer;
 
+
     public GameObject timer;
+
+    public LevelLoader levelLoader;
+
     // public PlayerMovement playerMovement;
 
     private void Start() {
@@ -23,7 +27,6 @@ public class DamageableCharacter : MonoBehaviour, Damageable {
             if(value < _health){
                 // Stuff that happens when damage is taken
             }
-
             _health = value;
             Debug.Log(_health);
             if(_health <= 0 && gameObject.tag != "Player"){
@@ -52,8 +55,11 @@ public class DamageableCharacter : MonoBehaviour, Damageable {
     public void Defeated(){
         // What happens when the player is defeated
         Debug.Log("player dead");
+
         PlayerPrefs.SetInt("time", timer.GetComponent<Timer>().timeElapsed);
         SceneManager.LoadScene("GameOver");
+
+        // levelLoader.LoadNextLevel();
     }
 
     IEnumerator ChangeColor() {
