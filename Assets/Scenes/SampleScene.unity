@@ -917,6 +917,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1594737903552967952, guid: 8c1038af3965b864cb8e75fdffa8a3e1, type: 3}
+      propertyPath: initialMetal
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594737903552967952, guid: 8c1038af3965b864cb8e75fdffa8a3e1, type: 3}
       propertyPath: metalPerSecond
       value: 10
       objectReference: {fileID: 0}
@@ -2224,7 +2228,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11d66c819571e2d428becca0d9fedf74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 310729405}
 --- !u!114 &1077689915
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6745,7 +6749,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2100122123}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2100122125}
+        m_TargetAssemblyTypeName: BuyButton, Assembly-CSharp
+        m_MethodName: Buy
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2100122123
 MonoBehaviour:
   m_ObjectHideFlags: 0
