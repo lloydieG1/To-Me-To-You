@@ -17,16 +17,21 @@ public class LevelLoader : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space)){
+        if(Input.GetKeyDown(KeyCode.Space) && SceneManager.GetActiveScene().buildIndex == 0 || SceneManager.GetActiveScene().buildIndex == 3){
 
             LoadNextLevel();
         }
     }
 
     public void LoadNextLevel(){
-        if(SceneManager.GetActiveScene().buildIndex != 1){
+        if(SceneManager.GetActiveScene().buildIndex == 0){
             StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
-            Debug.Log(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+        if(SceneManager.GetActiveScene().buildIndex == 3){
+            StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex - 1));
+        }
+        if(SceneManager.GetActiveScene().buildIndex == 2){
+            StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
         }
     }
 
