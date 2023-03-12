@@ -9,6 +9,7 @@ TagManager:
   - HealJuice
   - Balloon
   - Enemy
+  - Sword
   layers:
   - Default
   - TransparentFX
