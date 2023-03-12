@@ -6,13 +6,14 @@ public class WalkToTarget : MonoBehaviour
 {
     [SerializeField] float walkSpeed = 5f;
     Rigidbody2D rb;
+    
     [SerializeField] Transform target;
     Vector2 scaleChange, moveDirection;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        target = GameObject.Find("IcePlayer").transform;
     }
     
     private void Awake() {
