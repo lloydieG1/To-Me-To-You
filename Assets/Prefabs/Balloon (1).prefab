@@ -122,7 +122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   riseSpeed: 3
-  oxygenGive: 0
+  oxygenGive: 50
 --- !u!114 &7349927654313988136
 MonoBehaviour:
   m_ObjectHideFlags: 0
