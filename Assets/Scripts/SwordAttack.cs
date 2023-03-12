@@ -14,7 +14,6 @@ public class SwordAttack : MonoBehaviour
     Animator myAnimator;
 
     public float damage = 1f;
-    public float knockbackForce = 100f;
     
     void Start(){
         myAnimator = GetComponent<Animator>();
@@ -30,13 +29,7 @@ public class SwordAttack : MonoBehaviour
             Debug.Log("click");
             Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange, whatIsEnemies);
             for (int i = 0; i < enemiesToDamage.Length; i++){
-                Debug.Log("stuff happening");
-                    // Offset for collision detection changes the direction where the force is coming from
-                Vector2 direction = (GetComponent<Collider2D>().transform.position - transform.position).normalized;
-
-                    // Knockback is in direction of swordCollider towards collider
-                Vector2 knockback = direction * knockbackForce;
-                enemiesToDamage[i].GetComponent<DamageableCharacter>().OnHit(damage, knockback);
+                enemiesToDamage[i].GetComponent<DamageableCharacter>().OnHit(damage);
                 }
         }
     }

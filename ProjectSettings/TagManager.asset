@@ -9,6 +9,7 @@ TagManager:
   - HealJuice
   - Balloon
   - Enemy
+  - Sword
   layers:
   - Default
   - TransparentFX
@@ -16,7 +17,7 @@ TagManager:
   - enemy
   - Water
   - UI
-  - 
+  - Ground
   - 
   - 
   - 

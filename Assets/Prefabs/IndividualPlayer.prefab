@@ -124,7 +124,6 @@ MonoBehaviour:
   switchCharacter: {fileID: 0}
   resourceController: {fileID: 0}
   oxygenController: {fileID: 0}
-  knockbackForce: 100
 --- !u!114 &2361034804780751556
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137,9 +136,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14ea564981a29924faab094c03186843, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  jump: 7
+  lockMovement: 0
   LockTimeLength: 0.3
+  speed: 5
+  jumpForce: 10
+  collisionMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1001 &3841085190197267376
 PrefabInstance:
   m_ObjectHideFlags: 0

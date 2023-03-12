@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 61310308105040904}
   - component: {fileID: 61310308105040907}
   - component: {fileID: 61310308105040906}
+  - component: {fileID: 3682560258155626799}
   m_Layer: 3
   m_Name: Walker
   m_TagString: Enemy
@@ -116,7 +117,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: 3
-  playerMovement: {fileID: 0}
 --- !u!114 &61310308105040904
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -178,3 +178,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.44440603, y: 0.84125876}
   m_EdgeRadius: 0
+--- !u!114 &3682560258155626799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 61310308105040898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 071ee9c105b5c984eb285c377cc2bb2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
