@@ -5,14 +5,28 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour 
 {
     //Movement
-    public float speed;
-    public float jump;
     public bool lockMovement;
     public float LockTimeLength = 0.3f;
     private float moveVelocity;
-    private bool isGrounded = true; 
+    private bool isGrounded;
     SpriteRenderer spriteRenderer;
+
     private Rigidbody2D rb;   
+
+    [SerializeField]
+    private float speed = 5f;
+
+    [SerializeField]
+    private float jumpForce = 10f;
+
+    [SerializeField]
+    private LayerMask collisionMask;
+
+    [Header("Knockback")]
+    [SerializeField] private Transform _center;
+    [SerializeField] private float _knockbackVel = 10f;
+    [SerializeField] private bool _knockbacked;
+    [SerializeField] private float knockbackTime = 2f;
 
     private void Start() {
         // Get the player's rigidbody component
@@ -23,33 +37,24 @@ public class PlayerMovement : MonoBehaviour
 
     void Update () 
     {
+        var inputX = Input.GetAxisRaw("Horizontal");
+
+
+        var newXVel = _knockbacked ? Mathf.Lerp(rb.velocity.x, 0f, Time.deltaTime * 3) : inputX * speed;
+        rb.velocity = new Vector2(newXVel, rb.velocity.y);
+        
+
         //Jumping
         if (Input.GetKeyDown(KeyCode.W) && isGrounded)
         {
-            rb.velocity = new Vector2 (rb.velocity.x, jump);
+            rb.velocity = new Vector2 (rb.velocity.x, jumpForce);
             isGrounded = false;
         }
 
-        
-        moveVelocity = 0;
-
-
-        //Left Right Movement
-        if(lockMovement == true){
-            LockMovement();
-        } else {
-            if (Input.GetKey (KeyCode.LeftArrow) || Input.GetKey (KeyCode.A)) 
-            {
-                moveVelocity = -speed;
-                
-            }
-            if (Input.GetKey (KeyCode.RightArrow) || Input.GetKey (KeyCode.D)) 
-            {
-                moveVelocity = speed;
-            }
+        if(inputX != 0)
+        {
+            transform.localScale = new Vector3(Mathf.Sign(inputX), 1, 1);
         }
-
-        rb.velocity = new Vector2 (moveVelocity, rb.velocity.y);
 
     }
 
@@ -78,18 +83,18 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void LockMovement(){
-        lockMovement = true;
-        StartCoroutine(MakeUnmovable());
+    public void Knockback(Transform t){
+        Debug.Log("true");
+        var dir = transform.position - t.position;
+        _knockbacked = true;
+        rb.velocity = (dir.normalized * _knockbackVel);
+        StartCoroutine(Unknockback());
     }
 
-    private IEnumerator MakeUnmovable()
+    private IEnumerator Unknockback()
     {
-        // Wait for 0.3 seconds
-        yield return new WaitForSeconds(LockTimeLength);
-
-        // Set isUnmovable back to false
-        lockMovement = false;
+        yield return new WaitForSeconds(knockbackTime);
+        _knockbacked = false;
     }
 }
 
