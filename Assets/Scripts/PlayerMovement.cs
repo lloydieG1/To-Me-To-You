@@ -14,10 +14,10 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;   
 
     [SerializeField]
-    private float speed = 2f;
+    private float speed = 5f;
 
     [SerializeField]
-    private float jumpForce = 1f;
+    private float jumpForce = 10f;
 
     [SerializeField]
     private LayerMask collisionMask;
@@ -83,21 +83,8 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void LockMovement(){
-        lockMovement = true;
-        StartCoroutine(MakeUnmovable());
-    }
-
-    private IEnumerator MakeUnmovable()
-    {
-        // Wait for 0.3 seconds
-        yield return new WaitForSeconds(LockTimeLength);
-
-        // Set isUnmovable back to false
-        lockMovement = false;
-    }
-
     public void Knockback(Transform t){
+        Debug.Log("true");
         var dir = transform.position - t.position;
         _knockbacked = true;
         rb.velocity = (dir.normalized * _knockbackVel);

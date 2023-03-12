@@ -14,7 +14,6 @@ public class SwordAttack : MonoBehaviour
     Animator myAnimator;
 
     public float damage = 1f;
-    public float knockbackForce = 100f;
     
     void Start(){
         myAnimator = GetComponent<Animator>();
