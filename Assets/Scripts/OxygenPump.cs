@@ -49,7 +49,7 @@ public class OxygenPump : MonoBehaviour
         else
         {
             // deflate the balloon
-            currentOxygen -= deflateRate * Time.deltaTime;
+            currentOxygen += inflateRate * Time.deltaTime;
         }
 
         // clamp the currentOxygen value between 0 and releaseOxygen
