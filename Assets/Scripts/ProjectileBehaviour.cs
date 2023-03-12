@@ -10,7 +10,7 @@ public class ProjectileBehaviour : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy")) {
             DamageableCharacter damageable = collision.gameObject.GetComponent<DamageableCharacter>();
             damageable.OnHit(damage);
-        } else {
+        } else if (collision.gameObject.CompareTag("Ground")) {
             Destroy(gameObject);
         }
     }

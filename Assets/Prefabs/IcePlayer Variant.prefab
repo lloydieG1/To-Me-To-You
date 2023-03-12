@@ -59,6 +59,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2361034804780751556, guid: bce7ba2d7e96f08478ab3e9a3b190b6a, type: 3}
+      propertyPath: isFacing
+      value: Right
+      objectReference: {fileID: 0}
+    - target: {fileID: 2361034804780751556, guid: bce7ba2d7e96f08478ab3e9a3b190b6a, type: 3}
       propertyPath: swordAttack
       value: 
       objectReference: {fileID: 0}
@@ -279,7 +283,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   damage: 1
-  knockbackForce: 500
 --- !u!4 &6944804410412235110 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3302622932159807288, guid: bce7ba2d7e96f08478ab3e9a3b190b6a, type: 3}
