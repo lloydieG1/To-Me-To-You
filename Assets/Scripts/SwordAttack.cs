@@ -15,7 +15,6 @@ public class SwordAttack : MonoBehaviour
 
     public float damage = 1f;
     public float knockbackForce = 100f;
-    bool hasTriggered = false;
     
     
     void Start(){
