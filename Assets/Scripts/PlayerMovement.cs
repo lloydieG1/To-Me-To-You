@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
     //Movement
     public float speed;
     public float jump;
-    private bool lockMovement;
+    public bool lockMovement;
     public float LockTimeLength = 0.3f;
     private float moveVelocity;
     private bool isGrounded = true; 
@@ -35,7 +35,9 @@ public class PlayerMovement : MonoBehaviour
 
 
         //Left Right Movement
-        // if(lockMovement == true){
+        if(lockMovement == true){
+            LockMovement();
+        } else {
             if (Input.GetKey (KeyCode.LeftArrow) || Input.GetKey (KeyCode.A)) 
             {
                 moveVelocity = -speed;
@@ -45,7 +47,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 moveVelocity = speed;
             }
-        // }
+        }
 
         rb.velocity = new Vector2 (moveVelocity, rb.velocity.y);
 
@@ -76,18 +78,18 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    // public void LockMovement(){
-    //     lockMovement = true;
-    //     StartCoroutine(MakeUnmovable());
-    // }
+    private void LockMovement(){
+        lockMovement = true;
+        StartCoroutine(MakeUnmovable());
+    }
 
-    // private IEnumerator MakeUnmovable()
-    // {
-    //     // Wait for 0.3 seconds
-    //     yield return new WaitForSeconds(LockTimeLength);
+    private IEnumerator MakeUnmovable()
+    {
+        // Wait for 0.3 seconds
+        yield return new WaitForSeconds(LockTimeLength);
 
-    //     // Set isUnmovable back to false
-    //     LockMovement = false;
-    // }
+        // Set isUnmovable back to false
+        lockMovement = false;
+    }
 }
 

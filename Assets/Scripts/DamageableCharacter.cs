@@ -7,9 +7,12 @@ public class DamageableCharacter : MonoBehaviour, Damageable {
     Rigidbody2D rb;
     Collider2D physicsCollider;
     [SerializeField] float _health = 3f;
+    SpriteRenderer spriteRenderer;
+    public PlayerMovement playerMovement;
 
     private void Start() {
         rb = GetComponent<Rigidbody2D>();
+        playerMovement = FindObjectOfType<PlayerMovement>();
     }
 
     public float Health {
@@ -39,10 +42,19 @@ public class DamageableCharacter : MonoBehaviour, Damageable {
     public void OnHit(float damage, Vector2 knockback){
         Health -= damage;
         rb.AddForce(knockback, ForceMode2D.Impulse);
+        StartCoroutine(ChangeColor());
+        playerMovement.lockMovement = true;
     }
 
     public void Defeated(){
         // What happens when the player is defeated
         Debug.Log("player dead");
+    }
+
+    IEnumerator ChangeColor() {
+        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer.color = Color.red; // Change to the desired color
+        yield return new WaitForSeconds(0.3f); // Change to the desired duration
+        spriteRenderer.color = Color.white; // Change back to the original color
     }
 }
