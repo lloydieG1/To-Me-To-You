@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class OxygenController : MonoBehaviour
@@ -11,6 +12,7 @@ public class OxygenController : MonoBehaviour
     public float colorChangeSpeed;
 
     public GameObject oxygenUI;
+    public GameObject timer;
     private OxygenBar oxygenBar;
 
     private float width;
@@ -31,6 +33,10 @@ public class OxygenController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(oxygenLevel <= 0) {
+            Defeated();
+        }
+
         roundedPercentageDepleted = Mathf.RoundToInt(oxygenLevel/initialOxygenLevel * 100); 
 
         switch (roundedPercentageDepleted)
@@ -72,6 +78,13 @@ public class OxygenController : MonoBehaviour
         oxygenLevel = Mathf.Clamp(oxygenLevel, 0f, 100f);
         
 
+    }
+
+    public void Defeated(){
+        // What happens when the player is defeated
+        Debug.Log("player dead");
+        PlayerPrefs.SetInt("time", timer.GetComponent<Timer>().timeElapsed);
+        SceneManager.LoadScene("GameOver");
     }
 
     public void AddOxygen(float amount)
