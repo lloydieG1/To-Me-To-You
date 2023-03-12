@@ -39,23 +39,7 @@ public class OxygenPump : MonoBehaviour
 
     private void Update()
     {
-        if (isFilling && Input.GetKeyDown(inflateKey))
-        {
-            // inflate the balloon
-            currentOxygen += inflateRate;
-            Debug.Log("oxygen: " + currentOxygen);
-            
-        }
-        else
-        {
-            // deflate the balloon
-            currentOxygen += inflateRate * Time.deltaTime;
-        }
-
-        // clamp the currentOxygen value between 0 and releaseOxygen
-        currentOxygen = Mathf.Clamp(currentOxygen, 0.0f, releaseOxygen);
-
-        if (currentOxygen >= releaseOxygen)
+        if (isFilling && Input.GetKeyDown(inflateKey) && currentOxygen >= releaseOxygen)
         {
             // release the balloon and its oxygen
             Debug.Log("Balloon released with " + currentOxygen + " units of oxygen.");
@@ -63,7 +47,19 @@ public class OxygenPump : MonoBehaviour
 
             // instantiate balloon prefab
             Instantiate(balloonPrefab, transform.position, Quaternion.identity);
+            
+            Debug.Log("oxygen: " + currentOxygen);
+            
         }
+
+        if (currentOxygen < releaseOxygen)
+        {
+            // deflate the balloon
+            currentOxygen += inflateRate * Time.deltaTime;
+        }
+
+        // clamp the currentOxygen value between 0 and releaseOxygen
+        currentOxygen = Mathf.Clamp(currentOxygen, 0.0f, releaseOxygen);
     }
 }
 
