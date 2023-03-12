@@ -8,6 +8,7 @@ public class DamageableCharacter : MonoBehaviour, Damageable {
     Collider2D physicsCollider;
     [SerializeField] float _health = 3f;
     SpriteRenderer spriteRenderer;
+    public LevelLoader levelLoader;
     // public PlayerMovement playerMovement;
 
     private void Start() {
@@ -20,7 +21,6 @@ public class DamageableCharacter : MonoBehaviour, Damageable {
             if(value < _health){
                 // Stuff that happens when damage is taken
             }
-
             _health = value;
             Debug.Log(_health);
             if(_health <= 0 && gameObject.tag != "Player"){
@@ -49,6 +49,7 @@ public class DamageableCharacter : MonoBehaviour, Damageable {
     public void Defeated(){
         // What happens when the player is defeated
         Debug.Log("player dead");
+        // levelLoader.LoadNextLevel();
     }
 
     IEnumerator ChangeColor() {
