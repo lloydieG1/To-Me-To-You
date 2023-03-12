@@ -11,6 +11,8 @@ public class PlayerMovement : MonoBehaviour
     private bool isGrounded;
     SpriteRenderer spriteRenderer;
 
+    public string isFacing;
+
     private Rigidbody2D rb;   
 
     [SerializeField]
@@ -27,6 +29,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float _knockbackVel = 10f;
     [SerializeField] private bool _knockbacked;
     [SerializeField] private float knockbackTime = 2f;
+
+    private void Awake() {
+        isFacing = "Right";
+    }
 
     private void Start() {
         // Get the player's rigidbody component
@@ -74,11 +80,13 @@ public class PlayerMovement : MonoBehaviour
         if (horizontalInput > 0) // moving right
         {
             // face right
+            isFacing = "Right";
             rb.transform.localScale = new Vector2(1f, 0.99f); // face right
         }
         else if (horizontalInput < 0) // moving left
         {
             // face left
+            isFacing = "Left";
             rb.transform.localScale = new Vector2(-1f, 0.99f); // face left
         }
     }
