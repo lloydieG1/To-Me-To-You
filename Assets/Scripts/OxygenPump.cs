@@ -10,9 +10,11 @@ public class OxygenPump : MonoBehaviour
     private KeyCode inflateKey = KeyCode.Space; // the key used to inflate the balloon
     public Collider2D triggerCollider; // the collider that triggers the oxygen pump
     public GameObject balloonPrefab;
+    public Sprite[] balloons;
 
     private bool isFilling = false; // whether the player is currently filling the balloon
     private float currentOxygen; // the current amount of oxygen in the balloon
+    private int roundedPercentageFull;
 
 
     private void Start()
@@ -59,7 +61,39 @@ public class OxygenPump : MonoBehaviour
         }
 
         // clamp the currentOxygen value between 0 and releaseOxygen
-        currentOxygen = Mathf.Clamp(currentOxygen, 0.0f, releaseOxygen);
+        roundedPercentageFull = Mathf.RoundToInt(currentOxygen/releaseOxygen * 100); 
+
+        switch (roundedPercentageFull)
+        {
+            case 0:
+                GetComponent<SpriteRenderer>().sprite = balloons[7];
+                break;
+            case 5:
+                GetComponent<SpriteRenderer>().sprite = balloons[6];
+                break;
+            case 10:
+                GetComponent<SpriteRenderer>().sprite = balloons[5];
+                break;
+            case 20:
+                GetComponent<SpriteRenderer>().sprite = balloons[4];
+                break;
+            case 30:
+                GetComponent<SpriteRenderer>().sprite = balloons[3];
+                break;
+            case 50:
+                GetComponent<SpriteRenderer>().sprite = balloons[2];
+                break;
+            case 75:
+                GetComponent<SpriteRenderer>().sprite = balloons[1];
+                break;
+            case 99:
+                GetComponent<SpriteRenderer>().sprite = balloons[0];
+                break;
+            default:
+                Debug.Log("invalid case number");
+                break;
+        }
+
     }
 }
 

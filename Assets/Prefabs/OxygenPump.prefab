@@ -103,6 +103,15 @@ MonoBehaviour:
   releaseOxygen: 20
   triggerCollider: {fileID: 0}
   balloonPrefab: {fileID: 7349927654313988139, guid: 2f0293c242d065648b76c543c6817274, type: 3}
+  balloons:
+  - {fileID: 1385889489, guid: d78b7d6b110f0ec4eaf5b68c84dacf35, type: 3}
+  - {fileID: 1771461868, guid: d78b7d6b110f0ec4eaf5b68c84dacf35, type: 3}
+  - {fileID: -449340758, guid: d78b7d6b110f0ec4eaf5b68c84dacf35, type: 3}
+  - {fileID: 201819046, guid: d78b7d6b110f0ec4eaf5b68c84dacf35, type: 3}
+  - {fileID: 561515193, guid: d78b7d6b110f0ec4eaf5b68c84dacf35, type: 3}
+  - {fileID: -406353978, guid: d78b7d6b110f0ec4eaf5b68c84dacf35, type: 3}
+  - {fileID: -1357842170, guid: d78b7d6b110f0ec4eaf5b68c84dacf35, type: 3}
+  - {fileID: 729987202, guid: d78b7d6b110f0ec4eaf5b68c84dacf35, type: 3}
 --- !u!61 &3056240347758648795
 BoxCollider2D:
   m_ObjectHideFlags: 0
