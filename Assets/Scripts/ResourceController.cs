@@ -5,12 +5,14 @@ using UnityEngine;
 public class ResourceController : MonoBehaviour
 {
     public int initialMetal;
+    public int maxMetal;
     public int initialHealJuice;
+    public int maxHealJuice;
     public int metalPerSecond;
     public int healJuicePerSecond ;
 
-    [SerializeField] private int metal;
-    [SerializeField] private int healJuice;
+    public int metal;
+    public int healJuice;
 
     private void Start() {
         metal = initialMetal;
@@ -19,21 +21,27 @@ public class ResourceController : MonoBehaviour
 
     public void MiningMetal()
     {
-        Debug.Log("mining metal");
-        metal += metalPerSecond;
-        Debug.Log(metal);
+        if(metal <= maxMetal) {
+            Debug.Log("mining metal");
+            metal += metalPerSecond;
+            Debug.Log(metal);
+        }
     }
 
     public void MiningHealJuice()
     {
-        Debug.Log("mining heal juice");
-        healJuice += healJuicePerSecond;
-        Debug.Log(healJuice);
+        if(healJuice <= maxHealJuice) {
+            Debug.Log("mining heal juice");
+            healJuice += healJuicePerSecond;
+            Debug.Log(healJuice);
+        }
     }
 
     public void AddMetal(int amount)
     {
-        metal += amount;
+        if(metal <= maxMetal) {
+            metal += amount;
+        }
     }
 
     public void AddHealJuice(int amount)
