@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     
 
     // public float damage = 1;
-    public float knockbackForce = 100f;
+    // public float knockbackForce = 100f;
 
     
 

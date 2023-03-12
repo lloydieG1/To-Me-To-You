@@ -7,7 +7,7 @@ public class Walker : MonoBehaviour
     Rigidbody2D rb;
     Collider2D physicsCollider;
     public float damage = 1;
-    public float knockbackForce = 10f;
+    public float knockbackForce = 50f;
 
     // deal damage to damageable enemies
     void OnCollisionEnter2D(Collision2D collision) {
