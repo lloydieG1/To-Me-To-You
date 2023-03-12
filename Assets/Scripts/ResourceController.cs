@@ -8,8 +8,6 @@ public class ResourceController : MonoBehaviour
     public int maxMetal;
     public int initialHealJuice;
     public int maxHealJuice;
-    public int metalPerSecond;
-    public int healJuicePerSecond ;
 
     public int metal;
     public int healJuice;
@@ -19,26 +17,9 @@ public class ResourceController : MonoBehaviour
         healJuice = initialHealJuice;
     }
 
-    public void MiningMetal()
-    {
-        if(metal <= maxMetal) {
-            Debug.Log("mining metal");
-            metal += metalPerSecond;
-            Debug.Log(metal);
-        }
-    }
-
-    public void MiningHealJuice()
-    {
-        if(healJuice <= maxHealJuice) {
-            Debug.Log("mining heal juice");
-            healJuice += healJuicePerSecond;
-            Debug.Log(healJuice);
-        }
-    }
-
     public void AddMetal(int amount)
     {
+        Debug.Log("Mined metal: " + amount);
         if(metal <= maxMetal) {
             metal += amount;
         }
@@ -46,6 +27,7 @@ public class ResourceController : MonoBehaviour
 
     public void AddHealJuice(int amount)
     {
+        Debug.Log("Mined heal juice: " + amount);
         healJuice += amount;
     }
 

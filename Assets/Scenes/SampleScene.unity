@@ -3640,6 +3640,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2295608294556538422, guid: 676e6ad67a041d1448c82ff46b9af248, type: 3}
+      propertyPath: depletionRate
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2295608294556538422, guid: 676e6ad67a041d1448c82ff46b9af248, type: 3}
+      propertyPath: resourceAmount
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 2295608294556538423, guid: 676e6ad67a041d1448c82ff46b9af248, type: 3}
       propertyPath: m_Name
       value: MetalResource

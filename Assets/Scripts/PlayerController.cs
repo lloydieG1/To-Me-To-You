@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     // public float damage = 1;
     public float knockbackForce = 100f;
 
+    private ResourceTrigger currentResource;
     
 
     private void Start()
@@ -48,20 +49,19 @@ public class PlayerController : MonoBehaviour
 
 
     // trigger handling
-    void OnTriggerEnter2D(Collider2D other) {
+    void OnTriggerEnter2D(Collider2D other) {     
         if (other.CompareTag("Metal")) {
             // Player entered the collider, start gathering metal
+            currentResource = other.GetComponent<ResourceTrigger>();
             InvokeRepeating("AddMetal", 0.0f, 1.0f);
+            
         }
 
         if (other.CompareTag("HealJuice")) {
+            currentResource = other.GetComponent<ResourceTrigger>();
             // Player entered the collider, start gathering health juice
             InvokeRepeating("AddHealJuice", 0.0f, 1.0f);
         }
-    }
-
-    void AddMetal() {
-        resourceController.MiningMetal();
     }
 
     void OnTriggerExit2D(Collider2D other) {
@@ -77,7 +77,23 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    void AddMetal() {
+        if(currentResource.resourceAmount > 0)
+        {
+            currentResource.mine();
+            resourceController.AddMetal(currentResource.depletionRate);
+        } else {
+            Destroy(currentResource.gameObject);
+        } 
+    }
+
     void AddHealJuice() {
-        resourceController.MiningHealJuice();
+        if(currentResource.resourceAmount >= 0)
+        {
+            currentResource.mine();
+            resourceController.AddHealJuice(currentResource.depletionRate);
+        } else {
+            Destroy(currentResource.gameObject);
+        } 
     }
 }

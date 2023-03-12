@@ -5,6 +5,8 @@ using UnityEngine;
 public class ResourceTrigger : MonoBehaviour
 {
     public string tagToSet;
+    public int resourceAmount;
+    public int depletionRate;
 
 
     private void Start() 
@@ -16,6 +18,11 @@ public class ResourceTrigger : MonoBehaviour
         } else {
             tagToSet = gameObject.tag;
         }
+    }
+
+    public void mine() 
+    {
+        resourceAmount -= depletionRate;
     }
 
 
