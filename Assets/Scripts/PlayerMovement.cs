@@ -45,7 +45,7 @@ public class PlayerMovement : MonoBehaviour
         
 
         //Jumping
-        if (Input.GetKeyDown(KeyCode.W) && isGrounded)
+        if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))  && isGrounded)
         {
             rb.velocity = new Vector2 (rb.velocity.x, jumpForce);
             isGrounded = false;
