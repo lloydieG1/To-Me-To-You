@@ -56,6 +56,7 @@ public class DamageableCharacter : MonoBehaviour, Damageable {
         // What happens when the player is defeated
         Debug.Log("player dead");
 
+        Debug.Log("REE SCORE: " + timer.GetComponent<Timer>().timeElapsed);
         PlayerPrefs.SetInt("time", timer.GetComponent<Timer>().timeElapsed);
         SceneManager.LoadScene("GameOver");
 
