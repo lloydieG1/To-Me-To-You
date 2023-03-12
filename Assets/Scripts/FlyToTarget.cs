@@ -38,11 +38,11 @@ public class FlyToTarget : MonoBehaviour
         }
         if(target.position.x > transform.position.x)
         {
-            transform.localScale = new Vector3(0.5f, 0.5f, 1);
+            transform.localScale = new Vector2(1f, 1f);
         }
         if(target.position.x < transform.position.x)
         {
-            transform.localScale = new Vector3(-0.5f, 0.5f, 1);
+            transform.localScale = new Vector2(1f, 1f);
         }
     }
 }

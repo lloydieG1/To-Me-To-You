@@ -10,32 +10,32 @@ public class SwordAttack : MonoBehaviour
     public Transform attackPos;
     public float attackRange;
     public LayerMask whatIsEnemies;
-
+    
+    Animator myAnimator;
 
     public float damage = 1f;
-    public float knockbackForce = 100f;
     
+    void Start(){
+        myAnimator = GetComponent<Animator>();
+    }
+
     // Update is called once per frame
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
+            myAnimator.SetTrigger("SwingSword");
+        
             Debug.Log("click");
             Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange, whatIsEnemies);
             for (int i = 0; i < enemiesToDamage.Length; i++){
-                Debug.Log("stuff happening");
-                    // Offset for collision detection changes the direction where the force is coming from
-                Vector2 direction = (GetComponent<Collider2D>().transform.position - transform.position).normalized;
-
-                    // Knockback is in direction of swordCollider towards collider
-                Vector2 knockback = direction * knockbackForce;
-                enemiesToDamage[i].GetComponent<DamageableCharacter>().OnHit(damage, knockback);
+                enemiesToDamage[i].GetComponent<DamageableCharacter>().OnHit(damage);
                 }
-            }
+        }
     }
 
     void OnDrawGizmosSelected() {
         Gizmos.color = Color.red;
-        // Gizmos.DrawWireSphere(attackPos.position, attackRange);
+        Gizmos.DrawWireSphere(attackPos.position, attackRange);
     }
 }

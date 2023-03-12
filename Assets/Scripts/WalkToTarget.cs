@@ -6,13 +6,14 @@ public class WalkToTarget : MonoBehaviour
 {
     [SerializeField] float walkSpeed = 5f;
     Rigidbody2D rb;
+    
     [SerializeField] Transform target;
     Vector2 scaleChange, moveDirection;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        target = GameObject.Find("IcePlayer").transform;
     }
     
     private void Awake() {
@@ -36,11 +37,11 @@ public class WalkToTarget : MonoBehaviour
         }
         if(target.position.x > transform.position.x)
         {
-            transform.localScale = new Vector3(1f, 1f, 1);
+            transform.localScale = new Vector2(2f, 2f);
         }
         if(target.position.x < transform.position.x)
         {
-            transform.localScale = new Vector3(-1f, 1f, 1);
+            transform.localScale = new Vector2(-2f, 2f);
         }
     }
 }

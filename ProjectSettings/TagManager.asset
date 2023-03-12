@@ -8,14 +8,16 @@ TagManager:
   - Metal
   - HealJuice
   - Balloon
+  - Enemy
+  - Sword
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - enemy
   - Water
   - UI
-  - 
+  - Ground
   - 
   - 
   - 
