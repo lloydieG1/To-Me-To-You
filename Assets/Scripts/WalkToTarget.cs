@@ -36,11 +36,11 @@ public class WalkToTarget : MonoBehaviour
         }
         if(target.position.x > transform.position.x)
         {
-            transform.localScale = new Vector3(1f, 1f, 1);
+            transform.localScale = new Vector2(2f, 2f);
         }
         if(target.position.x < transform.position.x)
         {
-            transform.localScale = new Vector3(-1f, 1f, 1);
+            transform.localScale = new Vector2(-2f, 2f);
         }
     }
 }

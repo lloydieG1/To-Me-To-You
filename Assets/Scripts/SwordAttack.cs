@@ -11,15 +11,24 @@ public class SwordAttack : MonoBehaviour
     public float attackRange;
     public LayerMask whatIsEnemies;
     
+    Animator myAnimator;
 
     public float damage = 1f;
     public float knockbackForce = 100f;
+    bool hasTriggered = false;
     
+    
+    void Start(){
+        myAnimator = GetComponent<Animator>();
+    }
+
     // Update is called once per frame
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
+            myAnimator.SetTrigger("SwingSword");
+        
             Debug.Log("click");
             Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange, whatIsEnemies);
             for (int i = 0; i < enemiesToDamage.Length; i++){
@@ -31,7 +40,7 @@ public class SwordAttack : MonoBehaviour
                 Vector2 knockback = direction * knockbackForce;
                 enemiesToDamage[i].GetComponent<DamageableCharacter>().OnHit(damage, knockback);
                 }
-            }
+        }
     }
 
     void OnDrawGizmosSelected() {

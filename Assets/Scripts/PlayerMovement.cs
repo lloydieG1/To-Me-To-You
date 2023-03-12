@@ -67,12 +67,12 @@ public class PlayerMovement : MonoBehaviour
         if (horizontalInput > 0) // moving right
         {
             // face right
-            rb.transform.localScale = new Vector2(1f, 1f); // face right
+            rb.transform.localScale = new Vector2(1f, 0.99f); // face right
         }
         else if (horizontalInput < 0) // moving left
         {
             // face left
-            rb.transform.localScale = new Vector2(-1f, 1f); // face left
+            rb.transform.localScale = new Vector2(-1f, 0.99f); // face left
         }
     }
 
