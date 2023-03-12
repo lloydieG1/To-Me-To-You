@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class DamageableCharacter : MonoBehaviour, Damageable {
@@ -8,6 +9,8 @@ public class DamageableCharacter : MonoBehaviour, Damageable {
     Collider2D physicsCollider;
     [SerializeField] float _health = 3f;
     SpriteRenderer spriteRenderer;
+
+    public GameObject timer;
     // public PlayerMovement playerMovement;
 
     private void Start() {
@@ -49,6 +52,8 @@ public class DamageableCharacter : MonoBehaviour, Damageable {
     public void Defeated(){
         // What happens when the player is defeated
         Debug.Log("player dead");
+        PlayerPrefs.SetInt("time", timer.GetComponent<Timer>().timeElapsed);
+        SceneManager.LoadScene("GameOver");
     }
 
     IEnumerator ChangeColor() {
