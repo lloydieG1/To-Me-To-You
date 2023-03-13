@@ -88,6 +88,7 @@ public class OxygenController : MonoBehaviour
     public void Defeated(){
         // What happens when the player is defeated
         Debug.Log("player dead");
+        Debug.Log(timer.GetComponent<Timer>().timeElapsed);
         PlayerPrefs.SetInt("time", timer.GetComponent<Timer>().timeElapsed);
         SceneManager.LoadScene("GameOver");
     }

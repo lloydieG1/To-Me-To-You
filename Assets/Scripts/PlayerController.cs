@@ -43,7 +43,7 @@ public class PlayerController : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D collision) {
-        if (collision.gameObject.CompareTag("Balloon")) {
+        if (collision.gameObject.CompareTag("Balloon") && gameObject.name == "MoonPlayer") {
             oxygenController.AddOxygen(collision.gameObject.GetComponent<BalloonBehaviour>().oxygenGive);
             Destroy(collision.gameObject);
         }

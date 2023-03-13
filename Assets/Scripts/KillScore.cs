@@ -11,6 +11,7 @@ public class KillScore : MonoBehaviour {
         int kills = PlayerPrefs.GetInt("kills"); // Get score from PlayerPrefs
         Debug.Log("KILLS: " + kills);
         scoreText.text = "Your Kills: " + kills.ToString(); // Display score on screen
+        PlayerPrefs.SetInt("kills", 0); // reset for next play
     }
 }
 

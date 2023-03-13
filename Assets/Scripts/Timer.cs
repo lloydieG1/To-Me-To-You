@@ -12,7 +12,6 @@ public class Timer : MonoBehaviour {
     private int score = 0; // Score to display on game over screen
 
     void Start() {
-        timerText = GetComponent<TMP_Text>();
         InvokeRepeating("IncreaseTime", 1f, 1f); // Call IncreaseTime() every second
     }
 

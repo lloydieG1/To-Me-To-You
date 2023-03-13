@@ -2597,10 +2597,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f449aceb299d164449c43eb36df09dce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timerText: {fileID: 0}
+  timerText: {fileID: 1785136415}
   timeElapsed: 0
-  player: {fileID: 0}
-  oxygenController: {fileID: 0}
+  player: {fileID: 310729405}
+  oxygenController: {fileID: 1040800983}
 --- !u!4 &842098946
 Transform:
   m_ObjectHideFlags: 0
@@ -16902,7 +16902,6 @@ GameObject:
   - component: {fileID: 1785136413}
   - component: {fileID: 1785136416}
   - component: {fileID: 1785136415}
-  - component: {fileID: 1785136414}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -16930,22 +16929,6 @@ RectTransform:
   m_AnchoredPosition: {x: 21, y: -55.3}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1785136414
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1785136412}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f449aceb299d164449c43eb36df09dce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timerText: {fileID: 0}
-  timeElapsed: 0
-  player: {fileID: 310729405}
-  oxygenController: {fileID: 1040800983}
 --- !u!114 &1785136415
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18299,6 +18282,10 @@ PrefabInstance:
       propertyPath: switchCharacter
       value: 
       objectReference: {fileID: 523553622}
+    - target: {fileID: 1804271591771691110, guid: 3a24a1a7a1f0de643816f74a4c9e6e0b, type: 3}
+      propertyPath: oxygenController
+      value: 
+      objectReference: {fileID: 1040800984}
     - target: {fileID: 4348672793448440410, guid: 3a24a1a7a1f0de643816f74a4c9e6e0b, type: 3}
       propertyPath: m_Name
       value: IcePlayer
