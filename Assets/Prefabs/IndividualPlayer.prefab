@@ -138,11 +138,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lockMovement: 0
   LockTimeLength: 0.3
+  isFacing: 
   speed: 5
   jumpForce: 10
   collisionMask:
     serializedVersion: 2
     m_Bits: 0
+  _center: {fileID: 0}
+  _knockbackVel: 10
+  _knockbacked: 0
+  knockbackTime: 2
 --- !u!1001 &3841085190197267376
 PrefabInstance:
   m_ObjectHideFlags: 0
