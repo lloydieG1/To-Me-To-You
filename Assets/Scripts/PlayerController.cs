@@ -16,10 +16,12 @@ public class PlayerController : MonoBehaviour
     // public float knockbackForce = 100f;
 
     private ResourceTrigger currentResource;
+    private AudioManager audioManager;
     
 
     private void Start()
     {
+        audioManager = FindObjectOfType<AudioManager>();
         myGameObject = gameObject;
         resourceController = GameObject.Find("ResourceController").GetComponent<ResourceController>();
     }
@@ -80,6 +82,7 @@ public class PlayerController : MonoBehaviour
     void AddMetal() {
         if(currentResource.resourceAmount > 0)
         {
+            audioManager.Play("Mine");
             currentResource.mine();
             resourceController.AddMetal(currentResource.depletionRate);
         } else {

@@ -18,12 +18,15 @@ public class OxygenController : MonoBehaviour
     private float width;
     private float initialOxygenLevel;
 
+    private AudioManager audioManager;
+
     Color currentColor;
     Color targetColor;
     Color newColor;
     int roundedPercentageDepleted;
 
     private void Start() {
+        audioManager = FindObjectOfType<AudioManager>();
         initialOxygenLevel = oxygenLevel;
 
         oxygenBar = oxygenUI.GetComponent<OxygenBar>();
@@ -39,6 +42,7 @@ public class OxygenController : MonoBehaviour
 
         roundedPercentageDepleted = Mathf.RoundToInt(oxygenLevel/initialOxygenLevel * 100); 
 
+        // horrendous implementation of face animation
         switch (roundedPercentageDepleted)
         {
             case 100:
@@ -58,6 +62,7 @@ public class OxygenController : MonoBehaviour
                 Debug.Log("20% remaining");
                 break;
             case 10:
+                audioManager.Play("LastBreath");
                 oxygenBar.ChangeSprite(4);
                 Debug.Log("10% remaining");
                 break;

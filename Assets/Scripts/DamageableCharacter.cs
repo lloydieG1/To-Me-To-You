@@ -9,15 +9,15 @@ public class DamageableCharacter : MonoBehaviour, Damageable {
     Collider2D physicsCollider;
     [SerializeField] float _health = 3f;
     SpriteRenderer spriteRenderer;
-
-
     public GameObject timer;
-
     public LevelLoader levelLoader;
+
+    private AudioManager audioManager;
 
     // public PlayerMovement playerMovement;
 
     private void Start() {
+        audioManager = FindObjectOfType<AudioManager>();
         rb = GetComponent<Rigidbody2D>();
         // playerMovement = FindObjectOfType<PlayerMovement>();
     }
@@ -25,12 +25,23 @@ public class DamageableCharacter : MonoBehaviour, Damageable {
     public float Health {
         set{
             if(value < _health){
-                // Stuff that happens when damage is taken
+                if (gameObject.tag == "Player"){
+                    audioManager.Play("PlayerDamage");
+                    // when player takes damage
+
+                } else if (gameObject.tag == "Enemy"){
+                    // when enemy takes damage
+                }
+                
             }
             _health = value;
             Debug.Log(_health);
-            if(_health <= 0 && gameObject.tag != "Player"){
-                // when something that isnt a player dies
+            if(_health <= 0 && gameObject.tag == "Enemy"){
+                //when enemy dies
+                audioManager.Play("EnemyDeath");
+
+                // increment kill score
+                PlayerPrefs.SetInt("kills", PlayerPrefs.GetInt("kills") + 1);
                 Destroy(gameObject);
             }
             if(_health <= 0 && gameObject.tag == "Player"){
