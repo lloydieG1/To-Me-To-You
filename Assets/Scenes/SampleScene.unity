@@ -4888,6 +4888,16 @@ MonoBehaviour:
     volume: 0.343
     pitch: 1
     source: {fileID: 0}
+  - name: SwordSwing
+    clip: {fileID: 8300000, guid: d31ff71b573f48b48b0ac081bba229b0, type: 3}
+    volume: 0.343
+    pitch: 1.39
+    source: {fileID: 0}
+  - name: TurtleShoot
+    clip: {fileID: 8300000, guid: cc9ee4ebd92edd04c94abc208e20d87b, type: 3}
+    volume: 0.343
+    pitch: 1.08
+    source: {fileID: 0}
 --- !u!4 &1431975524
 Transform:
   m_ObjectHideFlags: 0

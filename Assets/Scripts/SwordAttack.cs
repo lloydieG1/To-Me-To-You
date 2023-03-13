@@ -14,8 +14,11 @@ public class SwordAttack : MonoBehaviour
     Animator myAnimator;
 
     public float damage = 1f;
+
+    private AudioManager audioManager;
     
     void Start(){
+        audioManager = FindObjectOfType<AudioManager>();
         myAnimator = GetComponent<Animator>();
     }
 
@@ -24,13 +27,14 @@ public class SwordAttack : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
+            audioManager.Play("SwordSwing");
             myAnimator.SetTrigger("SwingSword");
         
             Debug.Log("click");
             Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange, whatIsEnemies);
             for (int i = 0; i < enemiesToDamage.Length; i++){
                 enemiesToDamage[i].GetComponent<DamageableCharacter>().OnHit(damage);
-                }
+            }
         }
     }
 

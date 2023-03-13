@@ -15,7 +15,10 @@ public class TurretBehaviour : MonoBehaviour
     public float offsetY = 0.5f;
     private Vector2 offsetPos;
 
+    private AudioManager audioManager;
+
     private void Start() {
+        audioManager = FindObjectOfType<AudioManager>();
         
         playerMovement = GameObject.Find("IcePlayer").GetComponent<PlayerMovement>();
         Debug.Log(playerMovement.isFacing);
@@ -43,6 +46,8 @@ public class TurretBehaviour : MonoBehaviour
                 projectileRigidbody.velocity = -transform.right * projectileSpeed;
             }
 
+            // play sound
+            audioManager.Play("TurtleShoot");
 
             // Apply recoil force to the turret
             Rigidbody2D turretRigidbody = GetComponent<Rigidbody2D>();
